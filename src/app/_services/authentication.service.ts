@@ -35,8 +35,11 @@ export class AuthenticationService {
     }
 
     public login(username: string, password: string) : Subscription {
+        let input = new FormData();
+		input.append('username', username);
+		input.append('password', password);
         const url = URLS.login;
-        return this.http.post(url, { username: username, password: password }).subscribe(
+        return this.http.post(url, input).subscribe(
             data => {
                 this.router.navigate(['/']);
                 if(data["authenticated"] == "true"){
