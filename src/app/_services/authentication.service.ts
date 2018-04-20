@@ -46,7 +46,7 @@ export class AuthenticationService {
                     data["profile"]["token"] = "Token " + data["token"]
                     var profile : string = JSON.stringify(data["profile"])
                     localStorage.setItem('profile', profile);
-                    this.router.navigate(["/profile/" + data["profile"]["id"] + "/home"])
+                    this.router.navigate(["/profile/" + data["profile"]["id"]])
                     return true
                 }
                 return false
