@@ -1,0 +1,83 @@
+@import './variables.scss';
+@import './loader.scss';
+@import './global.scss';
+@import './cards.scss';
+@import './gallery.scss';
+@import './input-file.scss';
+@import './image-preview.scss';
+
+.div-background{
+    height: 450px;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    background-repeat: no-repeat;
+    background-position: center center; 
+    background-size: cover;
+}
+
+.image-background{
+    width: 100%;
+    height: auto;
+}
+
+.container-max-width{
+    width: 80%;
+    min-width: 400px;
+    margin: auto;
+}
+
+.container-min-width{
+    width: 50%;
+    min-width: 400px;
+    margin: auto;
+}
+
+.form-container{
+    margin: 30px auto;
+}
+
+.w3-allerta {
+    font-family: "Allerta Stencil", Sans-serif;
+}
+
+.center{
+    text-align: center;
+}
+
+.no-margin{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.link:hover{
+    color: $color;
+    cursor: pointer;
+}
+
+.link:focus{
+    outline: none;
+}
+
+.file-input-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.form-danger{
+    color: red;
+    font-size: x-small;
+}  
+
+.full-container{
+    margin: 40px 0;
+
+    .margin{
+        margin: 10px 0;
+    }
+}
+
+p, button, div, a {
+    font-family: "Segoe UI",Arial,sans-serif;
+}

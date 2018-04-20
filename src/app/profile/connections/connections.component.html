@@ -1,0 +1,11 @@
+<div *ngIf="connections" class="container-flex">
+	<div *ngFor="let connection of connections"  class="card w3-card">
+		<div class="container-photo">
+			<img src="{{ connection.avatar }}" class="card-photo">
+		</div>
+		<div class="card-description">
+			<p class="card-title link" [routerLink]="['/profile/', connection.id]">{{ connection.fullName() }}</p>
+			<p class="card-admin">{{ connection.user.email }}</p>
+		</div>
+	</div>
+</div>

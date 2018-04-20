@@ -1,0 +1,14 @@
+<div class="modal-popin">
+	<div class="modal-content">
+		<div class="modal-header">
+			<span (click)="vote(false)" class="close">&times;</span>
+		</div>
+		<div class="modal-body">
+			<p class="modal-body-content">Do you confirm this deletion ?</p>
+		</div>
+		<div class="modal-footer">
+			<button (click)="vote(false)" type="button" class="w3-button w3-blue">Cancel</button>
+			<button (click)="vote(true)" type="button" class="w3-button w3-red">Confirm</button>
+		</div>
+	</div>
+</div>

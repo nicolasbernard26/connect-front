@@ -1,0 +1,44 @@
+<div class="wrapper">
+
+	<app-menu></app-menu>
+
+	<div class="w3-container w3-blue">
+		<h2>
+			Ajouter des photos
+		</h2>
+	</div>
+
+	<div [hidden]="submitted" class="w3-container form-container container-max-width">
+		<div class="file-input-container w3-bar">
+			<label for="photo_event" class="w3-bar-item w3-button w3-blue" style="width:50%">Select images</label>
+			<input type="file" id="photo_event" class="input-file" accept="image/*" (change)="onFileChange($event)" multiple #fileInput>
+			<button type="button" class="w3-bar-item w3-button w3-red" style="width:50%" (click)="clearFiles()">Clear files</button>
+		</div>
+
+		<p *ngIf="isUploading">You are uploading {{ showNumberOfPhoto() }} photos</p>
+
+		<button *ngIf="isUploading" type="submit" class="w3-bar-item w3-button w3-teal" style="width:100%" (click)="onSubmit()">Upload</button>
+
+		<div class="w3-border" *ngIf="isUploading">
+			<div class="w3-blue" style="height:24px;" [style.width]="progressValue"></div>
+		</div>
+
+		<!--<button *ngIf="isUploading" type="submit" class="w3-bar-item w3-button w3-teal" style="width:100%" (click)="showPreview =!showPreview">Show preview</button>
+
+		<div [hidden]="!showPreview" class="preview-container">
+			<div class="preview-info" *ngFor="let image of images; let i = index;">
+				<div class="preview image-container">
+					<img class="image" src="{{ setImagePreview(image.name) }}">
+				</div>
+				<p class="preview name">{{ image.name }}</p>
+				<p class="preview size">{{ image.size }} Mo</p>
+				<div class="preview button">
+					<button type="button" class="w3-button w3-red" (click)="clearFile(i)">Clear file</button>
+				</div>
+			</div>
+		</div>-->
+
+	</div>
+
+	<div class="push"></div>
+</div>

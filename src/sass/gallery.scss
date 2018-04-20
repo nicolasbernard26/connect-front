@@ -1,0 +1,57 @@
+.gallery{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .card{ 
+        margin: 10px;
+        border: 1px solid #ccc;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        height: 300px;
+        width: auto;
+        overflow: hidden;
+        position: relative;
+        cursor: pointer;
+
+        .photo{
+            height: 100%;
+            width: auto;
+            image-orientation: from-image;
+        }
+
+        .close {
+            position: absolute; /* Position the background text */
+            right: 0; /* At the bottom. Use top:0 to append it to the top */
+            top: 0;
+            padding: 5px 8px;
+            color: #f1f1f1;
+            font-size: 10px;
+            font-weight: bold;
+        }
+
+        .close:hover{
+            background: rgba(0, 0, 0, 0.7); /* Black background with 0.5 opacity */
+        }
+
+        .content {
+            position: absolute; /* Position the background text */
+            bottom: 0; /* At the bottom. Use top:0 to append it to the top */
+            background: rgba(0, 0, 0, 0.7); /* Black background with 0.5 opacity */
+            color: #f1f1f1; /* Grey text */
+            width: 100%; /* Full width */
+            padding: 10px; /* Some padding */
+
+            .title{
+                margin: 0;
+                font-size: small;
+            }
+
+            .owner{
+                margin: 0;
+                margin-top: 10px;
+                font-size: x-small;
+                text-align: right;
+            }
+        }
+    }
+}

@@ -1,0 +1,31 @@
+<div class="wrapper">
+	<app-menu></app-menu>
+
+	<div *ngIf="profile" class="div-background" [ngStyle]="profile.setBackgroundAvatar()">
+		<h4 class="w3-display-middle w3-xxxlarge w3-allerta w3-black w3-padding w3-center w3-round-xxlarge">{{ profile.fullName() }}</h4>
+		<i *ngIf="profile.isMyProfile()" class="w3-button w3-black w3-display-bottomright material-icons" [routerLink]="['/create-event']">edit</i>
+	</div>
+
+	<div *ngIf="profile" class="w3-margin-bottom w3-margin-top">
+		<button *ngIf="profile.isMyProfile()" [routerLink]="['/create-event']" class="w3-round-large w3-border w3-button">
+			Créer un nouvel événement
+		</button>
+	</div>
+
+	<div class="w3-container w3-blue">
+		<h2>
+			Accueil
+		</h2>
+	</div>
+
+	<div *ngIf="profile">
+		<app-full-profile *ngIf="profile.isFullProfilePage()" [profile]="profile"></app-full-profile>
+		<div *ngIf="!profile.isFullProfilePage()" class="bar-content current">Vous n'êtes pas amis ...</div>
+	</div>
+
+	<div *ngIf="!profile" class="loader-container">
+		<div class="loader"></div>
+	</div>
+
+	<div class="push"></div>
+</div>

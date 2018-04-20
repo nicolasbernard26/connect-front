@@ -1,0 +1,75 @@
+<div class="wrapper">
+
+	<app-menu></app-menu>
+
+	<app-authorization-error *ngIf="authorizationError" message="modify this event"></app-authorization-error>
+
+	<div *ngIf="!authorizationError && !loading">
+		<div class="w3-container w3-blue">
+			<h2>
+				Edit the event
+			</h2>
+		</div>
+
+		<form (ngSubmit)="onSubmit()" [hidden]="submitted" [formGroup]="eventForm" class="w3-container form-container container-min-width">
+			<label for="title" class="form-label">Title</label>
+			<input type="text" class="w3-input" id="title" formControlName="title" autocomplete="off">
+			<div [hidden]="!(getTitle.errors && showErrors)" class="form-danger">
+				You have to set a title.
+			</div>
+			<p></p>
+
+			<label for="getDescription">Description</label>
+			<textarea class="w3-input" id="description" formControlName="description" name="description" autocomplete="off"></textarea>
+			<div [hidden]="!(getDescription.errors && showErrors)" class="form-danger">
+				You have to set a description.
+			</div>
+			<p></p>
+
+			<label for="place">Place</label>
+			<input type="text" class="w3-input" id="place" formControlName="place" name="place" autocomplete="off">
+			<div [hidden]="!(getPlace.errors && showErrors)" class="form-danger">
+				You have to set a place.
+			</div>
+			<p></p>
+
+			<label for="date_start">Date start</label>
+			<p-calendar dateFormat="dd/mm/yy" inputStyleClass="w3-input" id="date_start" formControlName="date_start" name="date_start"></p-calendar>
+			<div [hidden]="!(getDateStart.errors && showErrors)" class="form-danger">
+				You have to set a date.
+			</div>
+			<p></p>
+
+			<label for="date_start">Date end</label>
+			<p-calendar dateFormat="dd/mm/yy" inputStyleClass="w3-input" id="date_end" formControlName="date_end" name="date_end"></p-calendar>
+			<div [hidden]="!(getDateEnd.errors && showErrors)" class="form-danger">
+				You have to set a date.
+			</div>
+			<p></p>
+
+			<div class="file-input-container">
+				<label for="photo_event">Choose a picture</label>
+				<input type="file" id="photo_event" class="input-file" accept="image/*" (change)="onFileChange($event)" #fileInput>
+				<label>{{ getPhotoFilename.value }}</label>
+				<button type="button" class="btn btn-sm btn-default" (click)="clearFile()">Clear file</button>
+			</div>
+			<p></p>
+
+			<p></p>
+
+			<button type="submit" class="w3-button w3-black w3-block">Submit</button>
+
+			<p></p>
+			<div class="w3-border">
+				<div class="w3-blue" style="height:24px;" [style.width]="progressValue"></div>
+			</div>
+
+		</form>
+	</div>
+
+	<div *ngIf="loading" class="loader-container">
+		<div class="loader"></div>
+	</div>
+
+	<div class="push"></div>
+</div>

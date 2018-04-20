@@ -1,0 +1,27 @@
+.preview-container{
+    margin-top: 40px;
+    .preview-info{
+        height: 120px;
+        display: flex;
+        margin-top: 10px;
+        border-top: 1px solid rgb(128, 128, 128);
+        width: 100%;
+
+        .preview{
+            width: 25%;
+            height: 100px;
+            margin: 10px;
+        }
+        .image-container{
+
+            .image{
+                height: 100%;
+            }
+        }
+    
+        .preview, .preview{
+            text-align: center;
+        }
+    }
+    
+}

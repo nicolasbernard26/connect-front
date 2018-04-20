@@ -1,0 +1,15 @@
+<div class="w3-bar w3-black full-container">
+    <p class="w3-bar-item no-margin">Those people are already involve in this event :</p>
+</div>
+
+<div *ngIf="entries" class="container-flex">
+	<div *ngFor="let profile of entries" class="card w3-card">
+		<div class="container-photo">
+			<img src="{{ profile.avatar }}" class="card-photo">
+		</div>
+		<div class="card-description">
+			<p class="card-title link" [routerLink]="['/profile/', profile.id]">{{ profile.fullName() }}</p>
+			<p class="card-admin">{{ profile.user.email }}</p>
+		</div>
+	</div>
+</div>

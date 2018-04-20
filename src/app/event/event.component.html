@@ -1,0 +1,47 @@
+<div class="wrapper">
+    <app-menu></app-menu>
+
+    <app-authorization-error *ngIf="authorizationError" message="see this event"></app-authorization-error>
+
+    <div *ngIf="event && !authorizationError">
+
+        <!--<button *ngIf="myProfile" [routerLink]="['/']" class="button bold center contrast list-item">
+            Rajouter des participants
+        </button>-->
+
+        <div *ngIf="event" class="div-background" [ngStyle]="myStyle()">
+            <h4 *ngIf="event" class="w3-display-middle w3-xxxlarge w3-allerta w3-black w3-padding w3-center w3-round-xxlarge">{{ event.title }}</h4>
+            <i *ngIf="event.admin.id == authenticationService.getId()" class="w3-button w3-black w3-display-bottomright material-icons" [routerLink]="['/edit-event', event.id]">edit</i>
+        </div>
+
+        <div class="w3-bar w3-blue">
+            <button class="w3-bar-item w3-button" [routerLink]="['/event', event.id, 'home']" [style.background-color]="selectedTab == 'home' ? '#000000' : 'transparent'">Home</button>
+            <button class="w3-bar-item w3-button" [routerLink]="['/event', event.id, 'photos']" [style.background-color]="selectedTab == 'photos' ? '#000000' : 'transparent'">Photos</button>
+            <button class="w3-bar-item w3-button" [routerLink]="['/event', event.id, 'entries']" [style.background-color]="selectedTab == 'entries' ? '#000000' : 'transparent'">Entries</button>
+        </div>
+
+        <div [hidden]="selectedTab != 'home'" id="home" class="bar-content current">
+            <app-home-event></app-home-event>
+        </div>
+
+        <div [hidden]="selectedTab != 'photos'" id="photos" class="bar-content">
+            <app-photos></app-photos>
+        </div>
+
+        <div [hidden]="selectedTab != 'entries'" id="entries" class="bar-content">
+            <app-entries [entries]="event.entries"></app-entries>
+            <app-add-entries [event]="event"></app-add-entries>
+        </div>
+
+        <div [hidden]="selectedTab != 'add-involvement'" id="add" class="bar-content">
+            <app-add-entries [event]="event"></app-add-entries>
+        </div>
+
+    </div>
+
+    <div *ngIf="!event" class="loader-container">
+        <div class="loader"></div>
+    </div>
+
+    <div class="push"></div>
+</div>

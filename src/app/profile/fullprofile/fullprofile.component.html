@@ -1,0 +1,13 @@
+<!--<input (keyup)="onKey($event)">-->
+
+<div class="w3-bar w3-black">
+    <p class="w3-bar-item no-margin">Evénements</p>
+</div>
+  
+<app-involves [involves]="profile.involves"></app-involves>
+  
+<div class="w3-bar w3-black">
+	<p class="no-margin w3-bar-item">Connections</p>
+</div>
+  
+<app-connections [connections]="profile.connections"></app-connections>

@@ -1,0 +1,9 @@
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" (click)="closeNav()">&times;</a>
+    <a [routerLink]="['/profile/']">Profile</a>
+    <a [routerLink]="['/event/']">Event</a>
+</div>
+
+<div class="w3-bar w3-black">
+    <button class="material-icons w3-button w3-bar-item" style="color: white; background-color: black" (click)="openNav()">menu</button>
+</div>

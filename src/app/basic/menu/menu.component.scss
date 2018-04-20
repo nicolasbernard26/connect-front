@@ -1,0 +1,40 @@
+@import "../../../sass/styles.scss";
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: $second;
+    overflow-x: hidden;
+    transition: 0.2s;
+    padding-top: 60px;
+}
+
+.icon {
+    width: 44px;
+    color: $contrast;
+    background-color: $first;
+}
+
+.sidenav a {
+    text-decoration: none;
+    text-align: center;
+    color: $contrast;
+    display: block;
+    transition: 0.2s;
+}
+
+.sidenav a:hover {
+    color: $contrast;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 20px;
+    margin-left: 50px;
+}

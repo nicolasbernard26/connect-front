@@ -1,0 +1,12 @@
+<div *ngIf="involves" class="container-flex">
+	<div *ngFor="let involve of involves" class="card w3-card">
+		<div class="container-photo">
+			<img src="{{ involve.event.photo_event }}" class="card-photo">
+		</div>
+		<div class="card-description">
+			<p class="card-title link" [routerLink]="['/event/', involve.event.id, 'home']">{{ involve.event.title }}</p>
+			<p class="card-admin link" [routerLink]="['/profile/', involve.event.admin.id]">{{ involve.event.admin.fullName() }}</p>
+			<p class="card-date">{{ involve.event.getFullDate() }}</p>
+		</div>
+	</div>
+</div>

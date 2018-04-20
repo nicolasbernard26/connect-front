@@ -1,0 +1,12 @@
+<div class="w3-bar w3-black full-container">
+    <p class="w3-bar-item no-margin">You can add some people in this event :</p>
+</div>
+
+<form (ngSubmit)="onSubmit()" class="w3-container form-container container-min-width">
+	<div *ngFor="let profile of this.connectionsThatShouldBeAdded">
+		<input type="checkbox" class="w3-check" (change)="change(profile)" value="{{ profile.toAdd }}" id="description" required>
+		<label>{{ profile.name }}</label>
+		<p></p>
+	</div>
+	<button type="submit" class="w3-button w3-black w3-block">Submit</button>
+</form>

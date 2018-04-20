@@ -1,0 +1,39 @@
+.footer {
+    height: 50px;
+    margin: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .footer-item {
+        height: 100%;
+        vertical-align: middle;
+        cursor: pointer;
+    }
+    
+    .copyright{
+        width : 50%;
+        background-color: #1E83AE;
+    }
+    
+    .support{
+        width : 25%;
+        background-color: #6dcd9a;
+    }
+    
+    .facebook{
+        width : 12%;
+        background-color: #3D5B94;
+    }
+    
+    .linkedin{
+        width : 13%;
+        background-color: #1E83AE;
+    }
+
+    .footer-text-item {
+        text-align: center;
+        font-weight: bold;
+        color: white;
+    }
+}

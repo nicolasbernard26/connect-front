@@ -1,0 +1,23 @@
+.event-button-container{
+    margin: 0;
+    padding: 0;
+
+    .event-button{
+        cursor: pointer;
+        width: 100%;
+        margin : 0;
+        margin-top : 10px;
+        padding : 10px;
+        border : none;
+        color : white;
+        //background-color: $first;
+    }
+
+    .event-button:hover{
+        //background-color: $second;
+    }
+
+    .event-button:focus{
+        outline: none;
+    }
+}

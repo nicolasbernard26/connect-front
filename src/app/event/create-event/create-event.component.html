@@ -1,0 +1,67 @@
+<div class="wrapper">
+
+	<app-menu></app-menu>
+
+	<div class="w3-container w3-blue">
+		<h2>
+			Creation d'un événement
+		</h2>
+	</div>
+
+	<form (ngSubmit)="onSubmit()" [hidden]="submitted" [formGroup]="eventForm" class="w3-container form-container container-min-width">
+		<label for="name" class="form-label">Title</label>
+		<input type="text" class="w3-input" id="name" formControlName="title" autocomplete="off">
+		<div [hidden]="!(title.errors && showErrors)" class="form-danger">
+			You have to set a title.
+		</div>
+		<p></p>
+
+		<label for="description">Description</label>
+		<textarea class="w3-input" id="description" formControlName="description" name="description" autocomplete="off"></textarea>
+		<div [hidden]="!(description.errors && showErrors)" class="form-danger">
+			You have to set a description.
+		</div>
+		<p></p>
+
+		<label for="place">Place</label>
+		<input type="text" class="w3-input" id="place" formControlName="place" name="place" autocomplete="off">
+		<div [hidden]="!(place.errors && showErrors)" class="form-danger">
+			You have to set a place.
+		</div>
+		<p></p>
+
+		<label for="date_start">Date start</label>
+		<p-calendar dateFormat="dd/mm/yy" inputStyleClass="w3-input" id="date_start" formControlName="date_start" name="date_start"></p-calendar>
+		<div [hidden]="!(date_start.errors && showErrors)" class="form-danger">
+			You have to set a date.
+		</div>
+		<p></p>
+
+		<label for="date_start">Date end</label>
+		<p-calendar dateFormat="dd/mm/yy" inputStyleClass="w3-input" id="date_end" formControlName="date_end" name="date_end"></p-calendar>
+		<div [hidden]="!(date_end.errors && showErrors)" class="form-danger">
+			You have to set a date.
+		</div>
+		<p></p>
+
+		<div class="file-input-container">
+			<label for="photo_event">Choose a picture</label>
+			<input type="file" id="photo_event" class="input-file" accept="image/*" (change)="onFileChange($event)" #fileInput>
+			<label>{{ photo_filename.value }}</label>
+			<button type="button" class="btn btn-sm btn-default" (click)="clearFile()">Clear file</button>
+		</div>
+		<p></p>
+
+		<p></p>
+
+		<button type="submit" class="w3-button w3-black w3-block">Submit</button>
+
+		<p></p>
+		<div class="w3-border">
+			<div class="w3-blue" style="height:24px;" [style.width]="progressValue"></div>
+		</div>
+
+	</form>
+
+	<div class="push"></div>
+</div>
