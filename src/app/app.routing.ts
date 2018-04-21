@@ -18,6 +18,9 @@ import { NotfoundComponent } from './basic/notfound/notfound.component';
 import { NotExpr } from '@angular/compiler/src/output/output_ast';
 import { UploadPhotoEventComponent } from './event/upload-photo-event/upload-photo-event.component';
 import { EditEventComponent } from './event/edit-event/edit-event.component';
+import { HomeComponent } from './home/home.component';
+import { NicolasBernardComponent } from './nicolas-bernard/nicolas-bernard.component';
+import { CvComponent } from './nicolas-bernard/cv/cv.component';
 
 const appRoutes: Routes = [
     // AUTHENTIFICATION :
@@ -36,6 +39,10 @@ const appRoutes: Routes = [
 
     // ERROR :
     { path: 'notfound', component: NotfoundComponent, canActivate: [AuthGuard]},
+
+    { path: '', component: HomeComponent},
+    { path: 'nicolasbernard', component: NicolasBernardComponent},
+    { path: 'nicolasbernard/cv', component: CvComponent},
 
     // otherwise redirect to home
     { path: '**', redirectTo: '/notfound', canActivate: [AuthGuard] }

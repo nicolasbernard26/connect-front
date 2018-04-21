@@ -50,6 +50,9 @@ import { ConfirmPopinComponent } from './basic/confirm-popin/confirm-popin.compo
 import { PhotosService } from './_services/photos.service';
 import { EditEventComponent } from './event/edit-event/edit-event.component';
 import { AuthorizationErrorComponent } from './basic/authorization-error/authorization-error.component';
+import { NicolasBernardComponent } from './nicolas-bernard/nicolas-bernard.component';
+import { CvComponent } from './nicolas-bernard/cv/cv.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
 	declarations: [
@@ -84,7 +87,10 @@ import { AuthorizationErrorComponent } from './basic/authorization-error/authori
 		UploadPhotoEventComponent,
 		ConfirmPopinComponent,
 		EditEventComponent,
-		AuthorizationErrorComponent
+		AuthorizationErrorComponent,
+		NicolasBernardComponent,
+		CvComponent,
+		HomeComponent
 	],
 	imports: [
 		BrowserModule,
