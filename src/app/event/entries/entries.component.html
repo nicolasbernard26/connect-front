@@ -8,7 +8,7 @@
 			<img src="{{ profile.avatar }}" class="card-photo">
 		</div>
 		<div class="card-description">
-			<p class="card-title link" [routerLink]="['/profile/', profile.id]">{{ profile.fullName() }}</p>
+			<p class="card-title link" [routerLink]="['/connect/profile/', profile.id]">{{ profile.fullName() }}</p>
 			<p class="card-admin">{{ profile.user.email }}</p>
 		</div>
 	</div>

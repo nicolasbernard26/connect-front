@@ -57,7 +57,7 @@ export class AddEntriesComponent implements OnInit {
 		this.eventService.addInvolvement(this.event.id, this.formData).subscribe(
 			data => {
 				console.log(data);
-				this.router.navigate(["/event/" + data["id"]])
+				this.router.navigate(["/connect/event/" + data["id"]])
 			},
 			err => {
 				console.log(err)

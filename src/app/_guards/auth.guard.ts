@@ -16,7 +16,7 @@ export class AuthGuard implements CanActivate {
             console.log("There is a profile")
             return true;
         }
-        this.router.navigate(['/login']);
+        this.router.navigate(['/connect/login']);
         return false;
     }
 }

@@ -41,12 +41,11 @@ export class AuthenticationService {
         const url = URLS.login;
         return this.http.post(url, input).subscribe(
             data => {
-                this.router.navigate(['/']);
                 if(data["authenticated"] == "true"){
                     data["profile"]["token"] = "Token " + data["token"]
                     var profile : string = JSON.stringify(data["profile"])
                     localStorage.setItem('profile', profile);
-                    this.router.navigate(["/profile/" + data["profile"]["id"]])
+                    this.router.navigate(["/connect/profile/" + data["profile"]["id"]])
                     return true
                 }
                 return false

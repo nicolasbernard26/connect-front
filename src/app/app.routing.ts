@@ -24,21 +24,21 @@ import { CvComponent } from './nicolas-bernard/cv/cv.component';
 
 const appRoutes: Routes = [
     // AUTHENTIFICATION :
-    { path: 'login', component: LoginComponent },
-    { path: 'logout', component: LogoutComponent, canActivate: [AuthGuard]},
+    { path: 'connect/login', component: LoginComponent },
+    { path: 'connect/logout', component: LogoutComponent, canActivate: [AuthGuard]},
 
     // PROFILE :
     //{ path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
-    { path: 'profile/:id', component: ProfileComponent, canActivate: [AuthGuard]},
+    { path: 'connect/profile/:id', component: ProfileComponent, canActivate: [AuthGuard]},
 
     // EVENT :
-    { path: 'event/:id/:selectedTab', component: EventComponent, canActivate: [AuthGuard]},
-    { path: 'create-event', component: CreateEventComponent, canActivate: [AuthGuard]},
-    { path: 'edit-event/:id', component: EditEventComponent, canActivate: [AuthGuard]},
-    { path: 'upload-photos/:id', component: UploadPhotoEventComponent, canActivate:[AuthGuard]},
+    { path: 'connect/event/:id/:selectedTab', component: EventComponent, canActivate: [AuthGuard]},
+    { path: 'connect/create-event', component: CreateEventComponent, canActivate: [AuthGuard]},
+    { path: 'connect/edit-event/:id', component: EditEventComponent, canActivate: [AuthGuard]},
+    { path: 'connect/upload-photos/:id', component: UploadPhotoEventComponent, canActivate:[AuthGuard]},
 
     // ERROR :
-    { path: 'notfound', component: NotfoundComponent, canActivate: [AuthGuard]},
+    { path: 'connect/notfound', component: NotfoundComponent, canActivate: [AuthGuard]},
 
     { path: '', component: HomeComponent},
     { path: 'nicolasbernard', component: NicolasBernardComponent},

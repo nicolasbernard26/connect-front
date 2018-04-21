@@ -133,7 +133,7 @@ export class UploadPhotoEventComponent implements OnInit {
 			case HttpEventType.Response:
 				console.log('Done!', event.body);
 				if(event.body["information"] == "no_error"){
-					this.router.navigate(["/event/" + this.id + "/home"])
+					this.router.navigate(["/connect/event/" + this.id + "/home"])
 				}
 				return event.body;
 		}

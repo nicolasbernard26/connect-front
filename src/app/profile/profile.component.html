@@ -6,11 +6,11 @@
 			<h1 class="w3-xxxlarge">{{ profile.fullName() }}</h1>
 			<h3 class="w3-hide-small">{{ profile.getEmail() }}</h3>
 		</div>
-		<i *ngIf="profile.isMyProfile()" class="w3-button w3-black w3-display-bottomright material-icons" [routerLink]="['/create-event']">edit</i>
+		<i *ngIf="profile.isMyProfile()" class="w3-button w3-black w3-display-bottomright material-icons" [routerLink]="['/connect/create-event']">edit</i>
 	</div>
 
 	<div *ngIf="profile" class="w3-margin-bottom w3-margin-top">
-		<button *ngIf="profile.isMyProfile()" [routerLink]="['/create-event']" class="w3-round-large w3-border w3-button">
+		<button *ngIf="profile.isMyProfile()" [routerLink]="['/connect/create-event']" class="w3-round-large w3-border w3-button">
 			Créer un nouvel événement
 		</button>
 	</div>

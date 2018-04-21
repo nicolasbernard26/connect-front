@@ -10,13 +10,13 @@
                 <h1 class="w3-xxxlarge">{{ event.title }}</h1>
                 <h3 class="w3-hide-small">{{ event.getFullDate() }}</h3>
             </div>
-            <i *ngIf="event.admin.id == authenticationService.getId()" class="w3-button w3-black w3-display-bottomright material-icons" [routerLink]="['/edit-event', event.id]">edit</i>
+            <i *ngIf="event.admin.id == authenticationService.getId()" class="w3-button w3-black w3-display-bottomright material-icons" [routerLink]="['/connect/edit-event', event.id]">edit</i>
         </div>
 
         <div class="w3-bar w3-blue">
-            <button class="w3-bar-item w3-button" [routerLink]="['/event', event.id, 'home']" [style.background-color]="selectedTab == 'home' ? '#000000' : 'transparent'">Home</button>
-            <button class="w3-bar-item w3-button" [routerLink]="['/event', event.id, 'photos']" [style.background-color]="selectedTab == 'photos' ? '#000000' : 'transparent'">Photos</button>
-            <button class="w3-bar-item w3-button" [routerLink]="['/event', event.id, 'entries']" [style.background-color]="selectedTab == 'entries' ? '#000000' : 'transparent'">Entries</button>
+            <button class="w3-bar-item w3-button" [routerLink]="['/connect/event', event.id, 'home']" [style.background-color]="selectedTab == 'home' ? '#000000' : 'transparent'">Home</button>
+            <button class="w3-bar-item w3-button" [routerLink]="['/connect/event', event.id, 'photos']" [style.background-color]="selectedTab == 'photos' ? '#000000' : 'transparent'">Photos</button>
+            <button class="w3-bar-item w3-button" [routerLink]="['/connect/event', event.id, 'entries']" [style.background-color]="selectedTab == 'entries' ? '#000000' : 'transparent'">Entries</button>
         </div>
 
         <div [hidden]="selectedTab != 'home'" id="home" class="bar-content current">

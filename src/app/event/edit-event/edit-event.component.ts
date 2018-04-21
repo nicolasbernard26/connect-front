@@ -189,7 +189,7 @@ export class EditEventComponent implements OnInit {
 				break;
 			case HttpEventType.Response:
 				console.log('Done!', event.body);
-				this.router.navigate(["/event/" + event.body["id"] + "/home"])
+				this.router.navigate(["/connect/event/" + event.body["id"] + "/home"])
 				return event.body;
 		}
 	}

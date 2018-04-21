@@ -1,5 +1,5 @@
 <div class="full-container w3-center">
-	<button class="margin owner link w3-button w3-block w3-black" [routerLink]="['/upload-photos/', id]">
+	<button class="margin owner link w3-button w3-block w3-black" [routerLink]="['/connect/upload-photos/', id]">
 		Add photos
 	</button>
 	<button class="margin owner link w3-button w3-block w3-black">
@@ -13,7 +13,7 @@
 		<img class="photo" (click)="showModal(photo)" src="{{ photo.photo }}" />
 		<div class="content">
 			<!--<p class="title">{{ photo.title }}</p>-->
-			<p class="owner link" [routerLink]="['/profile/', photo.owner.id]">{{ photo.owner.fullName() }}</p>
+			<p class="owner link" [routerLink]="['/connect/profile/', photo.owner.id]">{{ photo.owner.fullName() }}</p>
 		</div>
 	</div>
 </div>

@@ -35,6 +35,7 @@ export class EventComponent extends TabComponent implements OnInit {
     }
 
     ngOnInit() {
+        window.scrollTo(0, 0);
         this.route.params.subscribe(
             val => {
                 console.log(val);

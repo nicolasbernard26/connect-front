@@ -40,9 +40,9 @@ export class LoginComponent implements OnInit {
         console.log(error);
         if (error.status == 200) {
             console.log(this.authenticationService.getId())
-            this.router.navigate(['/profile/' + this.authenticationService.getId()]);
+            this.router.navigate(['/connect/profile/' + this.authenticationService.getId()]);
         } else {
-            this.router.navigate(['/login']);
+            this.router.navigate(['/connect/login']);
         }
     }
 }

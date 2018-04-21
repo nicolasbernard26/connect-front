@@ -15,8 +15,8 @@
 <div *ngIf="involves" class="container-flex">
 	<div *ngFor="let involve of involves">
 		<div *ngIf="!involve.filter" class="w3-padding-large w3-border w3-wide w3-text-light-grey w3-center w3-margin" style="background-color: rgb(0,0,0);">
-			<h1 class="w3-xlarge link" [routerLink]="['/event/', involve.event.id, 'home']">{{ involve.event.title }}</h1>
-			<h3 class="w3-hide-small w3-small link" [routerLink]="['/profile/', involve.event.admin.id]">{{ involve.event.admin.fullName() }}</h3>
+			<h1 class="w3-xlarge link" [routerLink]="['/connect/event/', involve.event.id, 'home']">{{ involve.event.title }}</h1>
+			<h3 class="w3-hide-small w3-small link" [routerLink]="['/connect/profile/', involve.event.admin.id]">{{ involve.event.admin.fullName() }}</h3>
 			<div class="container-date"><i class="material-icons icon">date_range</i><p class="text-date">{{ involve.event.getFullDate() }}</p></div>
 		</div>
 	</div>
