@@ -1,0 +1,22 @@
+.filter-container {
+    display: flex;
+    width: 100%;
+
+    .input{
+        border: none;
+    }
+
+    .clear {
+        font-size: x-large;
+        font-weight: bold;
+        margin: 10px;
+    }
+
+    .clear:hover{
+        cursor: pointer;
+    }
+}
+
+.grey{
+    background-color: rgba(0, 0, 0, 0.2);
+}

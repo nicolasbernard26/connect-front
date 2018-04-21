@@ -12,6 +12,8 @@ export class FullProfileComponent implements OnInit {
 
 	@Input() profile: Profile;
 
+	public filterText : string = "";
+
 	constructor() { }
 
 	ngOnInit() {
@@ -19,15 +21,14 @@ export class FullProfileComponent implements OnInit {
 		
 	}
 
-	onKey(event: any) { // without type info
-		//this.values += event.target.value + ' | ';
-		console.log(event.target.value);
-		for(var involve of this.profile.involves){
-			involve.filter = !involve.event.title.toLowerCase().includes(event.target.value.toLowerCase());
-		}
+	filter() {
+		this.profile.involves.forEach(involve => involve.filter = !involve.event.title.toLowerCase().includes(this.filterText.toLowerCase()))
+		this.profile.connections.forEach(connection => connection.filter = !connection.fullName().toLowerCase().includes(this.filterText.toLowerCase()))
+	}
 
-		for(var connection of this.profile.connections){
-			connection.filter = !connection.fullName().toLowerCase().includes(event.target.value.toLowerCase());
-		}
+	removeFilter() {
+		this.filterText = "";
+		this.profile.involves.forEach(involve => involve.filter = false)
+		this.profile.connections.forEach(connection => connection.filter = false)
 	}
 }

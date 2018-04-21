@@ -4,13 +4,14 @@ import { WeakProfile } from '../weak_profile/weak_profile';
 import { EventJson } from './event_json';
 import { StatusProfile } from '../status_profile';
 import { BackURL } from '../../../config/url';
+import { dashCaseToCamelCase } from '@angular/compiler/src/util';
 
 var days : string[] = [
-    "Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche"
+    "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
 ]
 
 var months : string[] = [
-    "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"
+    "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"
 ]
 
 export class Event{
@@ -67,19 +68,19 @@ export class Event{
     public getFullDate(){
         var day = days[this.date_start.getDay()];
         var date = this.date_start.getDate();
-        var month = "";
-        var year = "";
-        //console.log(new Date())
-        if(this.date_start.getFullYear() != new Date().getFullYear()) {
-            year = " " + this.date_start.getFullYear();
-            month = " " + months[this.date_start.getMonth()]
+        var complement;
+        if ((date > 3 && date < 21) || (date > 23 && date < 31) ){
+            complement = "th, ";
+        } else if(date == 1 || date == 21 || date == 31){
+            complement = "st, ";
+        } else if(date == 2 || date == 22){
+            complement = "nd, ";
         } else {
-            if(this.date_start.getMonth() != new Date().getMonth()) {
-                month = " " + months[this.date_start.getMonth()];
-            }
+            complement = "rd, ";
         }
-        
-        return day + " " + date + month + year;
+        var month = " " + months[this.date_start.getMonth()];
+        var year = " " + this.date_start.getFullYear();
+        return month + " " + date + complement + year;
     }
 
     public changeVisible(){

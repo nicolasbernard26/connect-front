@@ -11,7 +11,7 @@ import { Profile } from '../../_models/profile/profile';
 })
 export class MenuComponent implements OnInit {
 
-	private profile : Profile;
+	public profile : Profile;
 
 	constructor(
 		private auth : AuthenticationService,
