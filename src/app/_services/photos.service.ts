@@ -11,23 +11,24 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Subscription } from 'rxjs/Subscription';
 import { BackURL } from '../../config/url';
+import { HTTPService } from './HTTPService.service';
 
 var URLS = {
     photo : BackURL + "/API/event/"
 }
 
 @Injectable()
-export class PhotosService {
+export class PhotosService extends HTTPService {
 
     constructor(
-        private router: Router,
-        private http: HttpClient
-    ) { }
+        public router: Router,
+        public http: HttpClient
+    ) {
+        super(router, http)
+     }
 
-    public deletePhoto(token : string, id : number): Observable<Object> {
+    public deletePhoto(id_event : number, id_photo : number): Observable<Object> {
         let headers: HttpHeaders = new HttpHeaders();
-        console.log(token)
-        headers = headers.append('Authorization', token);
-        return this.http.delete(URLS.photo + id + "/photos/photo", { headers : headers});
+        return this.http.delete(URLS.photo + id_event + "/photo?id_photo=" + id_photo, { headers : headers});
     }
 }

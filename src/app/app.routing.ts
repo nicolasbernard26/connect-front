@@ -21,9 +21,11 @@ import { EditEventComponent } from './event/edit-event/edit-event.component';
 import { HomeComponent } from './home/home.component';
 import { NicolasBernardComponent } from './nicolas-bernard/nicolas-bernard.component';
 import { CvComponent } from './nicolas-bernard/cv/cv.component';
+import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 
 const appRoutes: Routes = [
     // AUTHENTIFICATION :
+    { path: 'connect/sign-up', component: SignUpComponent },
     { path: 'connect/login', component: LoginComponent },
     { path: 'connect/logout', component: LogoutComponent, canActivate: [AuthGuard]},
 
@@ -40,9 +42,10 @@ const appRoutes: Routes = [
     // ERROR :
     { path: 'connect/notfound', component: NotfoundComponent, canActivate: [AuthGuard]},
 
-    { path: '', component: HomeComponent},
+    { path: 'home', component: HomeComponent},
     { path: 'nicolasbernard', component: NicolasBernardComponent},
     { path: 'nicolasbernard/cv', component: CvComponent},
+    { path: '', redirectTo: '/home', pathMatch: 'full'},
 
     // otherwise redirect to home
     { path: '**', redirectTo: '/notfound', canActivate: [AuthGuard] }

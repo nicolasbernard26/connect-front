@@ -7,8 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class AuthorizationErrorComponent implements OnInit {
 
-  @Input() message : string = 'see that ...'
-
+  @Input() message : string;
+  
   constructor() { }
 
   ngOnInit() {

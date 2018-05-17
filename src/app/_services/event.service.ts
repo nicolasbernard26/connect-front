@@ -21,28 +21,23 @@ import { HttpResponse } from '@angular/common/http';
 import { HttpUserEvent } from '@angular/common/http';
 
 import { BackURL } from '../../config/url';
+import { HTTPService } from './HTTPService.service';
 
 var URLS = {
-    event: BackURL + "/API/event/{0}/",
-    photos: BackURL + "/API/event/{0}/photos/",
-    entries: BackURL + "/API/event/{0}/entries/",
-    create: BackURL + "/API/event/"
+    event: BackURL + "/API/event/{0}",
+    photos: BackURL + "/API/event/{0}/photo",
+    entries: BackURL + "/API/event/{0}/entries",
+    create: BackURL + "/API/event"
 }
 
 @Injectable()
-export class EventService {
+export class EventService extends HTTPService {
 
     constructor(
-        private router: Router,
-        private http: HttpClient,
+        public router: Router,
+        public http: HttpClient,
     ) {
-    }
-
-    private formatURL(url: string, argument: string[]) {
-        for (var k in argument) {
-            url = url.replace("{" + k + "}", argument[k])
-        }
-        return url;
+        super(router, http)
     }
 
     public getGlobalInformation(id: number): Observable<Object> {
@@ -50,7 +45,7 @@ export class EventService {
         return this.http.request(req);
     }
 
-    public createEvent(event: FormData): Observable<Object> {
+    public createEvent(event: any): Observable<Object> {
         var headers: HttpHeaders = new HttpHeaders().append("Enctype", 'multipart/form-data');
 
         const req = new HttpRequest('POST', URLS.create, event, {

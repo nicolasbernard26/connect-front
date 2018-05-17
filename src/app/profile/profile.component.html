@@ -1,5 +1,8 @@
 <div class="wrapper">
+
 	<app-menu></app-menu>
+
+    <app-authorization-error *ngIf="authorizationError" [message]="authorizationErrorMessage"></app-authorization-error>
 
 	<div *ngIf="profile" class="div-background" [ngStyle]="profile.setBackgroundAvatar()">
 		<div class="w3-display-middle w3-padding-large w3-border w3-wide w3-text-light-grey w3-center" style="background-color: rgb(0,0,0, 0.7);">
@@ -22,7 +25,7 @@
 	</div>
 
 	<div *ngIf="profile">
-		<app-full-profile *ngIf="profile.isFullProfilePage()" [profile]="profile"></app-full-profile>
+		<app-full-profile *ngIf="profile.isFullProfilePage()" [profile]="profile" [connectionsToAdd]="connectionsToAdd"></app-full-profile>
 		<div *ngIf="!profile.isFullProfilePage()" class="bar-content current">Vous n'êtes pas amis ...</div>
 	</div>
 

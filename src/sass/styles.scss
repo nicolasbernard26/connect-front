@@ -50,6 +50,10 @@
     margin-bottom: 0;
 }
 
+.link {
+    text-decoration-line: none;
+}
+
 .link:hover{
     color: $color;
     cursor: pointer;

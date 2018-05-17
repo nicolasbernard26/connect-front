@@ -7,24 +7,30 @@
 	</button>
 </div>
 
-<div class="gallery">
-	<div class="card" *ngFor="let photo of photosEvent" draggable="true" (dragstart)="startDragPhoto($event)">
-		<div *ngIf="photo.owner.id == authenticationService.getId()" class="close" (click)="deletePhoto(photo)">&times;</div>
-		<img class="photo" (click)="showModal(photo)" src="{{ photo.photo }}" />
-		<div class="content">
-			<!--<p class="title">{{ photo.title }}</p>-->
-			<p class="owner link" [routerLink]="['/connect/profile/', photo.owner.id]">{{ photo.owner.fullName() }}</p>
-		</div>
+<div class="w3-center">
+	<div class="w3-bar">
+		<button class="link button-pagination" (click)="onPrevious()" [disabled]="currentPage == 1">&lt;</button>
+		<button class="link button-pagination" *ngFor="let pageNum of pages" (click)="goTo(pageNum)" [ngClass]="{'active': pageNum === currentPage }">{{ pageNum }}</button>
+		<button class="link button-pagination" (click)="onNext(true)" [disabled]="currentPage == pages.length">&gt;</button>
 	</div>
 </div>
 
-<div *ngIf="photoModal" class="modal">
-	<span class="close" (click)="retrieveModal()">&times;</span>
-	<button class="w3-button w3-black w3-display-left" (click)="next(photoModal, -1)">&#10094;</button>
-	<button class="w3-button w3-black w3-display-right" (click)="next(photoModal, 1)">&#10095;</button>
-	<img class="modal-content" src="{{ photoModal.photo }}" id="imageSlideSwhow">
+<div *ngFor="let photos of photosEventPaginated">
+	<!--<div class="card" *ngFor="let photo of photos">
+			<div *ngIf="photo.owner.id == authenticationService.getId()" class="close" (click)="deletePhoto(photo)">&times;</div>
+			<img class="photo" (click)="showModal(photo)" src="{{ photo.photo }}" />
+			<div class="content">
+				<p class="title">{{ photo.title }}</p>
+				<p class="owner link" [routerLink]="['/connect/profile/', photo.owner.id]">{{ photo.owner.fullName() }}</p>
+			</div>
+		</div>-->
+	<app-photos-page [page]="pages.length" [currentPage]="currentPage" [pageId]="photos.page" [photosEvent]="photos.photos" [eventId]="id"></app-photos-page>
 </div>
 
-<div (dragover)="allowDrop($event)" (drop)="onDropPhoto($event)">Drag</div>
-
-<app-confirm-popin *ngIf="displayPopin" (onVoted)="onVoted($event)"></app-confirm-popin>
+<div class="w3-center">
+	<div class="w3-bar">
+		<button class="link button-pagination" (click)="onPrevious()" [disabled]="currentPage == 1">&lt;</button>
+		<button class="link button-pagination" *ngFor="let pageNum of pages" (click)="goTo(pageNum)" [ngClass]="{'active': pageNum === currentPage }">{{ pageNum }}</button>
+		<button class="link button-pagination" (click)="onNext(true)" [disabled]="currentPage == pages.length">&gt;</button>
+	</div>
+</div>

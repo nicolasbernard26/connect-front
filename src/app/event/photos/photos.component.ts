@@ -22,10 +22,11 @@ export class PhotosComponent implements OnInit {
 
 	public id: number;
 	public photosEvent: PhotoEvent[] = [];
+	public photosEventPaginated: { photos: PhotoEvent[], page: number }[] = []
 	public displayModal: boolean = false;
-	public photoModal: PhotoEvent = null;
-	public displayPopin: boolean = false;
-	public photoToDelete: PhotoEvent = null;
+
+	public pages: number[] = [1];
+	public currentPage: number = 1;
 
 	constructor(
 		private route: ActivatedRoute,
@@ -47,43 +48,6 @@ export class PhotosComponent implements OnInit {
 		)
 	}
 
-	public allowDrop(e: DragEvent) {
-		console.log("allowDrop")
-		e.preventDefault();
-	}
-
-	public startDragPhoto(e: DragEvent) {
-		console.log("startDragPhoto")
-		e.dataTransfer.setData("text", "salut");
-	}
-
-	public onDropPhoto(e: DragEvent) {
-		//console.log("onDropPhoto")
-		e.preventDefault();
-		console.log(e.dataTransfer.getData("text"));
-	}
-
-	public dragPhoto(e: DragEvent) {
-		console.log("dragPhoto");
-		e.preventDefault();
-	}
-
-	public retrieveModal() {
-		this.photoModal = null;
-	}
-
-	public showModal(photo: PhotoEvent) {
-		this.photoModal = photo;
-	}
-
-	public next(photo: PhotoEvent, i: number) {
-		var index = this.photosEvent.findIndex(function (element) {
-			return element === photo;
-		});
-		console.log(index);
-		this.photoModal = this.photosEvent[index + i];
-	}
-
 	private dealWithHttpEvent(event: HttpEvent<any>) {
 		switch (event.type) {
 			case HttpEventType.Sent:
@@ -92,49 +56,32 @@ export class PhotosComponent implements OnInit {
 			case HttpEventType.Response:
 				var photo: PhotoEventJson
 				if (event.body["photos"] != undefined) {
-					console.log(event.body["photos"])
 					for (photo of event.body["photos"]) {
 						this.photosEvent.push(new PhotoEvent(photo));
 					}
+					var page = Math.floor(this.photosEvent.length / 20);
+					if (page >= 0) {
+						for (var i = 1; i <= page + 1; i++) {
+							this.photosEventPaginated.push({ photos: this.photosEvent.splice(0, (19 < this.photosEvent.length) ? 19 : this.photosEvent.length), page: i });
+						}
+					}
+					this.pages = Array.apply(null, { length: page + 1 }).map(Number.call, Number);
+					this.pages.forEach(function (part, index, theArray) {
+						theArray[index] = part + 1;
+					});
 				}
 		}
 	}
 
-
-	private dealWithHttpEventAfterDeletePhoto(event: HttpEvent<any>) {
-		switch (event.type) {
-			case HttpEventType.Sent:
-				console.log('Request sent!');
-				break;
-			case HttpEventType.Response:
-				var photo: PhotoEventJson
-				console.log(event.body)
-		}
+	public onPrevious() {
+		this.currentPage--;
 	}
 
-	public deletePhoto(photo: PhotoEvent) {
-		this.displayPopin = true;
-		console.log(photo);
-		this.photoToDelete = photo;
+	public onNext() {
+		this.currentPage++;
 	}
 
-	public onVoted(toDelete: boolean) {
-		console.log(toDelete);
-		this.displayPopin = false;
-		if (toDelete) {
-			this.photoService.deletePhoto(this.authenticationService.getToken(), this.photoToDelete.id).subscribe(
-				(event: HttpEvent<any>) => {
-					this.dealWithHttpEventAfterDeletePhoto(event);
-				},
-				(err: HttpErrorResponse) => {
-					this.errorService.dealWithHttpErrorResponse(err);
-				}
-			);
-			var photoToDelete = this.photoToDelete;
-			var index = this.photosEvent.findIndex(element => element == photoToDelete);
-			this.photosEvent.splice(index, 1);
-		} else {
-			this.photoToDelete = null;
-		}
+	public goTo(number) {
+		this.currentPage = number;
 	}
 }

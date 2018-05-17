@@ -11,6 +11,7 @@ import { Profile } from '../../_models/profile/profile';
 export class FullProfileComponent implements OnInit {
 
 	@Input() profile: Profile;
+	@Input() connectionsToAdd : Profile[] = [];
 
 	public filterText : string = "";
 

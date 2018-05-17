@@ -1,0 +1,67 @@
+<div class="wrapper">
+
+	<app-menu></app-menu>
+
+	<div class="w3-container w3-blue">
+		<h2>
+			Creation d'un événement
+		</h2>
+	</div>
+
+	<form (ngSubmit)="onSubmit()" [hidden]="submitted" [formGroup]="profileForm" class="w3-container form-container container-min-width">
+		<label for="email">E-mail</label>
+		<input type="text" class="w3-input" id="email" formControlName="email" name="place" autocomplete="off">
+		<div [hidden]="!(email.errors && showErrors)" class="form-danger">
+			You have to set a e-mail.
+		</div>
+		<p></p>
+
+		<label for="password" class="form-label">Password</label>
+		<input type="password" class="w3-input" id="password" formControlName="password" autocomplete="off">
+		<div [hidden]="!(password.errors && showErrors)" class="form-danger">
+			You have to set a password.
+		</div>
+		<p></p>
+
+		<label for="confirm_password">Last name</label>
+		<input type="password" class="w3-input" id="confirm_password" formControlName="confirm_password" name="first_name" autocomplete="off">
+		<div [hidden]="!(confirm_password.errors && showErrors)" class="form-danger">
+			You have to confirm the password.
+		</div>
+		<p></p>
+
+		<label for="first_name" class="form-label">First name</label>
+		<input type="text" class="w3-input" id="first_name" formControlName="first_name" autocomplete="off">
+		<div [hidden]="!(first_name.errors && showErrors)" class="form-danger">
+			You have to set a first name.
+		</div>
+		<p></p>
+
+		<label for="last_name">Last name</label>
+		<input class="w3-input" id="last_name" formControlName="last_name" name="first_name" autocomplete="off">
+		<div [hidden]="!(last_name.errors && showErrors)" class="form-danger">
+			You have to set a last name.
+		</div>
+		<p></p>
+
+		<div class="file-input-container">
+			<label for="avatar">Choose an avatar</label>
+			<input type="file" id="avatar" class="input-file" accept="image/*" (change)="onFileChange($event)" #fileInput>
+			<label>{{ avatar_name.value }}</label>
+			<button type="button" class="btn btn-sm btn-default" (click)="clearFile()">Clear file</button>
+		</div>
+		<p></p>
+
+		<p></p>
+
+		<button type="submit" class="w3-button w3-black w3-block">Submit</button>
+
+		<p></p>
+		<div class="w3-border">
+			<div class="w3-blue" style="height:24px;" [style.width]="progressValue"></div>
+		</div>
+
+	</form>
+
+	<div class="push"></div>
+</div>

@@ -74,10 +74,7 @@ export class CreateEventComponent implements OnInit {
 			this.showErrors = true;
 			return;
 		}
-		console.log(this.eventForm.get('photo_event').value);
 		const formData = this.prepareSave();
-		//this.model.date_end = this.model.date_end_form.getFullYear() + '-' + (this.model.date_end_form.getMonth() + 1) + '-' + this.model.date_end_form.getDate();
-		//this.model.date_start = this.model.date_start_form.getFullYear() + '-' + (this.model.date_start_form.getMonth() + 1) + '-' + this.model.date_start_form.getDate();
 		this.eventService.createEvent(formData).subscribe(
 			(event: HttpEvent<any>) => {
 				this.dealWithHttpEvent(event)
@@ -99,7 +96,7 @@ export class CreateEventComponent implements OnInit {
 	}
 
 	private prepareSave(): FormData {
-		var date = new Date();
+		console.log(this.eventForm.value)
 		var date_start: string = this.eventForm.get('date_start').value.getFullYear() + '-' + (this.eventForm.get('date_start').value.getMonth() + 1) + '-' + this.eventForm.get('date_start').value.getDate() + " 00:00Z";
 		this.eventForm.get('date_start').setValue(new Date(date_start));
 		var date_end: string = this.eventForm.get('date_end').value.getFullYear() + '-' + (this.eventForm.get('date_end').value.getMonth() + 1) + '-' + this.eventForm.get('date_end').value.getDate() + " 00:00Z";
@@ -117,7 +114,6 @@ export class CreateEventComponent implements OnInit {
 	}
 
 	clearFile() {
-		//this.form.get('avatar').setValue(null);
 		this.fileInput.nativeElement.value = '';
 	}
 

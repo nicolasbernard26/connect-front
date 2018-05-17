@@ -14,3 +14,9 @@
 </div>
 
 <app-connections [connections]="profile.connections"></app-connections>
+
+<div *ngIf="connectionsToAdd.length > 0" class="w3-bar grey">
+    <p class="no-margin w3-bar-item w3-large">Connections that you can add</p>
+</div>
+
+<app-connections *ngIf="connectionsToAdd.length > 0" [connections]="connectionsToAdd"></app-connections>

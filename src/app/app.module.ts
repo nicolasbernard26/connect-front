@@ -53,6 +53,8 @@ import { AuthorizationErrorComponent } from './basic/authorization-error/authori
 import { NicolasBernardComponent } from './nicolas-bernard/nicolas-bernard.component';
 import { CvComponent } from './nicolas-bernard/cv/cv.component';
 import { HomeComponent } from './home/home.component';
+import { SignUpComponent } from './authentication/sign-up/sign-up.component';
+import { PhotosPageComponent } from './event/photos-page/photos-page.component';
 
 @NgModule({
 	declarations: [
@@ -90,7 +92,9 @@ import { HomeComponent } from './home/home.component';
 		AuthorizationErrorComponent,
 		NicolasBernardComponent,
 		CvComponent,
-		HomeComponent
+		HomeComponent,
+		SignUpComponent,
+		PhotosPageComponent
 	],
 	imports: [
 		BrowserModule,
