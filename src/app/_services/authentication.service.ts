@@ -17,8 +17,8 @@ import { ProfileJson } from '../_models/profile/profile_json';
 import { BackURL } from '../../config/url';
 
 var URLS = {
-    login : BackURL + "/API/account/login/",
-    signUp : BackURL + "/API/account/sign-up/"
+    login : BackURL + "/API/account/login",
+    signUp : BackURL + "/API/account/sign-up"
 }
 
 @Injectable()
