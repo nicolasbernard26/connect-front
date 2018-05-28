@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { EventJson } from '../../_models/event/event_json';
 import { Router } from '@angular/router';
 
-import { EventService, AuthenticationService } from '../../_services/index'
 import { HttpHeaders } from '@angular/common/http';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { HttpEvent } from '@angular/common/http';
@@ -12,6 +11,8 @@ import { ErrorService } from '../../_services/error.service';
 import { EventFormModel } from '../../_models/event/event.form';
 import { Event } from '../../_models/event/event';
 import { FormControlName } from '@angular/forms';
+import { EventService } from '../../_services/event.service';
+import { AuthenticationService } from '../../_services/authentication.service';
 
 @Component({
 	selector: 'app-create-event',

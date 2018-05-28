@@ -1,9 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { ProfileService, AuthenticationService, EventService } from '../../_services/index';
 import { WeakProfileJson } from '../../_models/weak_profile/weak_profile_json';
 import { WeakProfile } from '../../_models/weak_profile/weak_profile';
 import { Event } from '../../_models/event/event';
 import { Router } from '@angular/router';
+import { ProfileService } from '../../_services/profile.service';
+import { AuthenticationService } from '../../_services/authentication.service';
+import { EventService } from '../../_services/event.service';
 
 
 @Component({
@@ -21,8 +23,8 @@ export class AddEntriesComponent implements OnInit {
 	@Input() event : Event;
 
 	constructor(
-		private profileService : ProfileService,
 		private router: Router,
+		private profileService : ProfileService,
 		private authenticationService : AuthenticationService,
 		private eventService : EventService
 	) { }

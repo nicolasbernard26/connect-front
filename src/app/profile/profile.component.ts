@@ -10,9 +10,10 @@ import { ProfileService } from '../_services/profile.service';
 
 import { TabComponent } from '../_component/tab.component';
 import { OnDestroy, OnChanges } from '@angular/core/src/metadata/lifecycle_hooks';
-import { AuthenticationService } from '../_services/index';
 import { Profile } from '../_models/profile/profile';
 import { ErrorService } from '../_services/error.service';
+import { ConnectionService } from '../_services/connection.service';
+import { AuthenticationService } from '../_services/authentication.service';
 
 @Component({
     selector: 'app-profile',
@@ -40,7 +41,8 @@ export class ProfileComponent implements OnInit {
         private profileService: ProfileService,
         private route: ActivatedRoute,
         private authenticationService: AuthenticationService,
-        private errorService: ErrorService
+        private errorService: ErrorService,
+        private connectionService: ConnectionService
     ) {
     }
 
@@ -98,5 +100,19 @@ export class ProfileComponent implements OnInit {
                     });
                 }
         }
+    }
+
+    public becomeFriend(){
+        this.connectionService.addConnection(this.profile.id).subscribe(
+            (event: HttpEvent<any>) => {
+                switch (event.type) {
+                    case HttpEventType.Response:        
+                        console.log(event.body);
+                }
+            },
+            (err: HttpErrorResponse) => {
+                this.errorService.dealWithHttpErrorResponse(err);
+            }
+        )
     }
 }

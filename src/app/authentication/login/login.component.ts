@@ -2,8 +2,7 @@
 import { Router, ActivatedRoute } from '@angular/router';
 import 'rxjs/add/operator/map';
 import { Observable } from 'rxjs/Rx';
-
-import { AuthenticationService } from '../../_services/index';
+import { AuthenticationService } from '../../_services/authentication.service';
 
 @Component({
     moduleId: module.id,

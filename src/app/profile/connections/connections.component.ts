@@ -5,7 +5,7 @@ import { HttpClient, HttpResponse, HttpHeaders } from '@angular/common/http';
 import { ProfileService } from '../../_services/profile.service';
 
 import { Connections } from '../../_models/connections/connections';
-import { AuthenticationService } from '../../_services/index';
+import { AuthenticationService } from '../../_services/authentication.service';
 
 @Component({
   selector: 'app-connections',

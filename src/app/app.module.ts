@@ -10,16 +10,9 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
-
-
 import { AppComponent } from './app.component';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AuthGuard } from './_guards/index';
-
-import { AuthenticationService, ProfileService, EventService } from './_services/index';
-
 import { routing } from './app.routing';
 
 // AUTHENTICATION :
@@ -55,6 +48,12 @@ import { CvComponent } from './nicolas-bernard/cv/cv.component';
 import { HomeComponent } from './home/home.component';
 import { SignUpComponent } from './authentication/sign-up/sign-up.component';
 import { PhotosPageComponent } from './event/photos-page/photos-page.component';
+import { ConnectionService } from './_services/connection.service';
+import { NotificationComponent } from './notification/notification.component';
+import { NotificationService } from './_services/notification.service';
+import { AuthenticationService } from './_services/authentication.service';
+import { ProfileService } from './_services/profile.service';
+import { EventService } from './_services/event.service';
 
 @NgModule({
 	declarations: [
@@ -94,7 +93,8 @@ import { PhotosPageComponent } from './event/photos-page/photos-page.component';
 		CvComponent,
 		HomeComponent,
 		SignUpComponent,
-		PhotosPageComponent
+		PhotosPageComponent,
+		NotificationComponent
 	],
 	imports: [
 		BrowserModule,
@@ -116,6 +116,8 @@ import { PhotosPageComponent } from './event/photos-page/photos-page.component';
 		EventService,
 		ErrorService,
 		PhotosService,
+		ConnectionService,
+		NotificationService,
 		httpInterceptorProviders
 	],
 	bootstrap: [AppComponent]

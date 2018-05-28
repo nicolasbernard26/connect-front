@@ -1,8 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { EventJson } from '../../_models/event/event_json';
 import { Router, ActivatedRoute } from '@angular/router';
-
-import { EventService, AuthenticationService } from '../../_services/index'
 import { HttpHeaders } from '@angular/common/http';
 import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { HttpEvent } from '@angular/common/http';
@@ -10,6 +8,8 @@ import { HttpEventType } from '@angular/common/http';
 import { HttpErrorResponse } from '@angular/common/http';
 import { ErrorService } from '../../_services/error.service';
 import { Type } from '@angular/core/src/type';
+import { EventService } from '../../_services/event.service';
+import { AuthenticationService } from '../../_services/authentication.service';
 
 @Component({
 	selector: 'app-upload-photo-event',

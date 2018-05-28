@@ -27,6 +27,9 @@
 	<div *ngIf="profile">
 		<app-full-profile *ngIf="profile.isFullProfilePage()" [profile]="profile" [connectionsToAdd]="connectionsToAdd"></app-full-profile>
 		<div *ngIf="!profile.isFullProfilePage()" class="bar-content current">Vous n'êtes pas amis ...</div>
+		<button *ngIf="!profile.isMyProfile()" (click)="becomeFriend()" class="w3-round-large w3-border w3-button">
+			Devenir ami ?
+		</button>
 	</div>
 
 	<div *ngIf="!profile" class="loader-container">

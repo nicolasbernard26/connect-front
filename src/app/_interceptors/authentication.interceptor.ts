@@ -4,7 +4,7 @@ import {
 } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
-import { AuthenticationService } from '../_services/index';
+import { AuthenticationService } from '../_services/authentication.service';
 
 
 @Injectable()

@@ -15,7 +15,7 @@ import { HTTPService } from './HTTPService.service';
 
 var URLS = {
     connection : BackURL + "/API/account/connections",
-    event : BackURL + "/észAPI/account/events",
+    event : BackURL + "/API/account/events",
     profile : BackURL + "/API/account/profile/{0}",
     findConnections : BackURL + "/API/account/profile/find-connections"
 }

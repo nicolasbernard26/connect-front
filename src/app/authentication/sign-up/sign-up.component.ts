@@ -2,7 +2,6 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { EventJson } from '../../_models/event/event_json';
 import { Router } from '@angular/router';
 
-import { EventService, AuthenticationService, ProfileService } from '../../_services/index'
 import { HttpHeaders } from '@angular/common/http';
 import { FormGroup, Validators, FormBuilder, FormControl } from '@angular/forms';
 import { HttpEvent } from '@angular/common/http';
@@ -13,6 +12,8 @@ import { Event } from '../../_models/event/event';
 import { FormControlName } from '@angular/forms';
 import { Profile } from '../../_models/profile/profile';
 import { ProfileJson } from '../../_models/profile/profile_json';
+import { ProfileService } from '../../_services/profile.service';
+import { AuthenticationService } from '../../_services/authentication.service';
 
 @Component({
 	selector: 'app-sign-up',
